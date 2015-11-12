@@ -1,0 +1,82 @@
+<tr ng-show="currentPage == 0">
+    <td align="center" height="23" colspan="2" bgcolor="#FED41D" class="title" dir="rtl"><font color="#088A29"><b>מהו
+                סגנון קבלת ההחלטות שלך בבחירת תחום לימודים ומקצוע?</b></font></td>
+</tr>
+<tr align="left" valign="top" ng-show="currentPage == 0">
+
+    <td colspan="2" align="right" valign="top" bgcolor="#FFFFFF" dir="rtl" class="text">
+
+        <center><font class="title">ראשית, נבקשך למלא את הפרטים הבאים</font></center>
+        <br>
+
+        <table border="0" width="100%" height="50%" align="center" class="text">
+            <tbody>
+            <tr width="100%" height="230">
+                <td colspan="2" rowspan="6">
+                        <table border="1" align="center" width="70%" height="230" bordercolor="#99CCFF"
+                               bgcolor="white" class="text">
+                            <tbody>
+                            <tr>
+                                <td align="right">גיל</td>
+                                <td align="right">
+                                    <input ng-model='user.age' type="text" size="3" maxlength="2" name="age">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">מין</td>
+                                <td align="right">
+                                    <input ng-model='user.sex' type="RADIO" name="sex" value="1"> זכר<br>
+                                    <input ng-model='user.sex' type="RADIO" name="sex" value="2">נקבה<br></td>
+                            </tr>
+
+                            <tr>
+                                <td align="right">מספר שנות לימוד</td>
+                                <td align="right">
+                                    <input ng-model='user.year' type="text" size="3" name="year">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right">תעודת בגרות</td>
+                                <td align="right">
+                                    <input ng-model='user.edu' type="RADIO" name="edu" value="1">אין<br>
+                                    <input ng-model='user.edu' type="RADIO" name="edu" value="2">חלקית<br>
+                                    <input ng-model='user.edu' type="RADIO" name="edu" value="3">מלאה
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right">האם כבר מלאת שאלון זה?</td>
+                                <td align="right">
+                                    <input ng-model='user.before' type="RADIO" name="before" value="1">כן<br>
+                                    <input ng-model='user.before' type="RADIO" name="before" value="2">לא
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"> כדי שתוכל לזהות את תדפיס המשוב האישי שלך <br>(שיוצג בסיום מילוי
+                                    השאלון), הכנס שם או קוד לפי בחירתך
+                                </td>
+                                <td align="right">
+                                    <input ng-model='user.clue' type="text" name="clue"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                </td>
+            </tr>
+            <tr colspan="2"></tr>
+            </tbody>
+        </table>
+        <table border="0" align="center" width="100%" height="15">
+            <tbody>
+            <tr>
+                <td align="center">
+                    <a class="linkinferior" ng-click="nextClicked()">
+                        המשך</a>
+                    <br>&nbsp;
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>

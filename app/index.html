@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/kl3.css">
+    <!-- endbuild -->
+</head>
+<body ng-app="kivunimApp" ng-controller="MainCtrl">
+
+<body bgcolor="white" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="774" border="0" align="center" cellpadding="0" cellspacing="0" class="text">
+    <tbody>
+    <tr>
+        <td height="55" colspan="2" align="right"><img src="http://kivunim.huji.ac.il/img/kl4logosmall_noyellow.jpg"
+                                                       height="115"></td>
+    </tr>
+    <tr>
+        <td align="center" height="23" colspan="2" bgcolor="#FED41D" class="title" dir="rtl"><font color="#088A29"><b>מהו
+            סגנון קבלת ההחלטות שלך בבחירת תחום לימודים ומקצוע?</b></font></td>
+    </tr>
+    <tr>
+        {{message}}
+    </tr>
+    <tr>
+        <td colspan="3" class="text" align="right" dir="rtl">
+            <form name="form">
+                <font></font>
+                <center><font>
+                    <table border="0" frame="void" rules="none" cellpadding="6" cellspacin="8" dir="LTR" class="text">
+                        <tbody  ng-repeat="section in mainForm.questions" ng-show="currentPage== $index +1">
+                        <tr>
+                            <td colspan="10">
+                                <hr color="yellow">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <table class="text" width="100%">
+                                    <tbody>
+                                    <tr>
+                                        <td align="right"><b>מסכים<br> מאוד</b></td>
+                                        <td align="center" colspan="2">-----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----&nbsp;&nbsp;</td>
+                                        <td align="center"><b>מסכים<br> במידה <br>בינונית</b></td>
+                                        <td align="center" colspan="2">&nbsp;-----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----</td>
+                                        <td align="left"><b>כלל לא<br> מסכים</b></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td align="right">
+                                <b>
+                                דף
+                                {{$index +1}}
+                                מתוך
+                                {{mainForm.questions.length}}
+                                </b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="10">
+                                <hr color="yellow">
+                            </td>
+                        </tr>
+                        <tr ng-repeat="item in section">
+                            <td ng-repeat="i in values">
+                                <span></span><b>
+                                <input type="radio" name="{{item.name}}" value="{{i}}" >{{i}}</b>
+                            </td>
+                            <td dir="rtl" align="right" class="text">
+                                {{item.text}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </font>
+
+                    <center>
+                        <a ng-click="nextClicked()">
+                            <img src="http://kivunim.huji.ac.il/img/cont.jpg" border="0" width="87" height="26">
+                        </a>
+                        <br>&nbsp;
+                        <a ng-click="backClicked()">
+                            <img src="http://kivunim.huji.ac.il/img/cont.jpg" border="0" width="87" height="26">
+                        </a>
+                        <br>&nbsp;
+                    </center>
+
+
+                    <form name="forSending" action="http://kivunim.huji.ac.il/cgi-kivunim/save.pl" method="get">
+                        <input type="hidden" name="data">
+                        <input type="hidden" name="data1">
+                        <input type="hidden" name="data2">
+                        <input type="HIDDEN" name="page" value="quest/kl4/cdmp/cdmp_end.html">
+                        <input type="HIDDEN" name="filename" value="quest/kl4/cdmp/cdmp.dat">
+                    </form>
+
+                </center>
+            </form>
+        </td>
+    </tr>
+    <!--
+    <tr align="left" valign="top">
+
+        <td colspan="2" align="right" valign="top" bgcolor="#FFFFFF" dir="rtl" class="text">
+
+            <center><font class="title">ראשית, נבקשך למלא את הפרטים הבאים</font></center>
+            <br>
+
+            <table border="0" width="100%" height="50%" align="center" class="text">
+                <tbody>
+                <tr width="100%" height="230">
+                    <td colspan="2" rowspan="6">
+                        <form name="form1">
+                            <table border="1" align="center" width="70%" height="230" bordercolor="#99CCFF"
+                                   bgcolor="white" class="text">
+                                <tbody>
+                                <tr>
+                                    <td align="right">גיל</td>
+                                    <td align="right">
+                                        <input type="text" size="3" maxlength="2" name="age">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">מין</td>
+                                    <td align="right"><input type="RADIO" name="sex" value="1"> זכר<br>
+                                        <input type="RADIO" name="sex" value="2">נקבה<br></td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">מספר שנות לימוד</td>
+                                    <td align="right"><input type="text" size="3" name="year"></td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">תעודת בגרות</td>
+                                    <td align="right"><input type="RADIO" name="edu" value="1">אין<br><input
+                                            type="RADIO" name="edu" value="2">חלקית<br><input type="RADIO" name="edu"
+                                                                                              value="3">מלאה
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">האם כבר מלאת שאלון זה?</td>
+                                    <td align="right"><input type="RADIO" name="before" value="1">כן<br><input
+                                            type="RADIO" name="before" value="2">לא
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right"> כדי שתוכל לזהות את תדפיס המשוב האישי שלך <br>(שיוצג בסיום מילוי
+                                        השאלון), הכנס שם או קוד לפי בחירתך
+                                    </td>
+                                    <td align="right"><input type="text" name="clue"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </td>
+                </tr>
+                <tr colspan="2"></tr>
+                </tbody>
+            </table>
+            <table border="0" align="center" width="100%" height="15">
+                <tbody>
+                <tr>
+                    <td align="center"><a href="javascript:Next();" class="linkinferior">
+                        המשך</a><br>&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>-->
+    <tr valign="middle" height="30">
+        <td colspan="3">
+            <table width="100%">
+                <tbody>
+                <tr>
+                    <td width="50%" align="left"><a href="http://www.huji.ac.il/copy.htm" target="_blank"
+                                                    class="copyrights"><font color="#088A08">כל הזכויות שמורות ליישום,
+                        האוניברסיטה העברית בירושלים, 2014 ©</font></a></td>
+                    <td width="50%" valign="middle" align="right"><span class="rozita">Designed by&nbsp;&nbsp;</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    </tbody>
+</table>
+
+</body>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+    !function (A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+            (A[l].q = A[l].q || []).push(arguments)
+        }, A[l].l = +new Date, a = n.createElement(g),
+                r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+</script>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="../bower_components/angular-resource/angular-resource.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="../bower_components/angular-touch/angular-touch.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about.js"></script>
+<script src="scripts/services/form.js"></script>
+<!-- endbuild -->
+</body>
+</html>

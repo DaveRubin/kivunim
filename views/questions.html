@@ -1,0 +1,76 @@
+<tr ng-show="currentPage != 0">
+    <td colspan="3" class="text" align="right" dir="rtl">
+        <form name="form">
+            <font></font>
+            <center><font>
+                    <table border="0" frame="void" rules="none" cellpadding="6" cellspacin="8" dir="LTR" class="text">
+                        <tbody>
+                        <tr>
+                            <td colspan="10">
+                                <hr color="yellow">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <table class="text" width="100%">
+                                    <tbody>
+                                    <tr>
+                                        <td align="right"><b>מסכים<br> מאוד</b></td>
+                                        <td align="center" colspan="2">-----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----&nbsp;&nbsp;</td>
+                                        <td align="center"><b>מסכים<br> במידה <br>בינונית</b></td>
+                                        <td align="center" colspan="2">&nbsp;-----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----</td>
+                                        <td align="left"><b>כלל לא<br> מסכים</b></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td align="right">
+                                <b>
+                                    דף
+                                    {% raw %}{{ currentPage }}{% endraw %}
+                                    מתוך
+                                    {{ count // MAX_QUESTIONS +1 }}
+                                </b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="10">
+                                <hr color="yellow">
+                            </td>
+                        </tr>
+
+                        {% for question in form.questions %}
+                            <tr  ng-show = 'currentPage == {{ (loop.index-1) // MAX_QUESTIONS }}+1 '>
+                                {% for i in 1..7 %}
+                                    <td>
+                                        <b>
+                                            <input ng-model='questions.{{ form.name }}{{ question.name }}' type='radio' name='{{ question.name }}' value='{{ i }}'>
+                                            {{ i }}
+                                        </b>
+                                    </td>
+                                {% endfor %}
+                                <td dir="rtl" align="right" class="text">{{ question.text }}</td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="10">
+                                <hr color="yellow">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </font>
+
+                <center ng-if="currentPage != sections">
+                    <a ng-click="nextClicked()">
+                        <img src="http://kivunim.huji.ac.il/img/cont.jpg" border="0" width="87" height="26">
+                    </a>
+                </center>
+                <center ng-if="currentPage == sections">
+                    <input type="submit">
+                </center>
+
+            </center>
+        </form>
+    </td>
+</tr>

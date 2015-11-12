@@ -1,0 +1,171 @@
+.text1{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:white;
+	font-size: 13px;
+        font-weight: bold;
+	text-decoration: none;
+}
+.text3{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:3D512C;
+	font-size: 13px;
+        font-weight: bold;
+	text-decoration: none;
+}
+.text-big-green
+{font-family: Helvetica,"Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:3D512C;
+	font-size: 17px;
+        font-weight: 900;
+	text-decoration: none;
+}
+.text{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:403B2C;
+	font-size: 13px;
+
+	text-decoration: none;
+}
+.textquest{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:375200;
+	font-size: 13px;
+        font-weight: bold;
+	text-decoration: none;
+}
+
+.rozita{
+	font-family: Arial ;
+        color:white;
+	font-size: 9px;
+        font-weight: normal;
+	text-decoration: none;
+        text-align:right;
+}
+.copyrights{
+	font-family: Arial ;
+        color:white;
+	font-size: 9px;
+        font-weight: normal;
+	text-decoration: none;
+        text-align:left;
+}
+.copyrights1{
+	font-family: Arial ;
+        color:white;
+	font-size: 11px;
+        font-weight: normal;
+	text-decoration: none;
+        text-align:left;
+}
+
+.title{
+	font-family: Helvetica,"Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:BA2F00;
+	font-size: 17px;
+        font-weight: 900;
+	text-decoration: none;
+}
+.title1{
+	font-family: Helvetica,"Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:BA2F00;
+	font-size: 20px;
+        font-weight: 900;
+	text-decoration: none;
+}
+.title2{
+	font-family: Helvetica,"Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:BA2F00;
+	font-size: 15px;
+        font-weight: 800;
+	text-decoration: none;
+}
+
+    .TA {scrollbar-3dlight-color:3D512C;
+           scrollbar-arrow-color:3D512C;
+           scrollbar-base-color:3D512C;
+           scrollbar-darkshadow-color:3D512C;
+           scrollbar-face-color:CDCDCB;
+           scrollbar-highlight-color:E3E3E1;
+           scrollbar-shadow-color:E3E3E1
+           scrollbar-width: 100px
+        }
+    .TA1 {scrollbar-3dlight-color:E3E3E1;
+           scrollbar-arrow-color:E3E3E1;
+           scrollbar-base-color:black;
+           scrollbar-darkshadow-color:E3E3E1;
+           scrollbar-face-color:E3E3E1;
+           scrollbar-highlight-color:E3E3E1;
+           scrollbar-shadow-color:E3E3E1
+           scrollbar-width: 0px
+        }
+.p { margin-right:20px;
+     direction:rtl;
+     font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:403B2C;
+	font-size: 13px;
+
+	text-decoration: none;
+   }
+
+   
+a.linkmenubottom{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: 3D512C;
+	font-weight: bold;
+	text-decoration: none;
+}
+a.linkinferior{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: 3D512C;
+	font-weight: bold;
+	text-decoration: underline;
+}
+a.linkinferior1{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: 3D512C;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+a.linkinferior1:visited{
+	font-family: "Arial (Hebrew)"Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: black;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+a.linkexterior{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: BA2F00;
+	font-weight: bold;
+	text-decoration: underline;
+}
+a.linkinferiorbig{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: 3D512C;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+
+a.linkmenutop{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+a.linkmenu{
+	font-family: "Arial (Hebrew)",Arial, Helvetica, sans-serif;
+        color:FFFFFF;
+	font-size: 13px;
+        font-weight: bold;
+	text-decoration: none;
+}
