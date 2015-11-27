@@ -1,5 +1,6 @@
+var Question  = require("./Question.js");
 
-var Form = function(data){
+function Form(data){
     this.name = data.name;
     this.questions = [];
     var that = this;
@@ -7,4 +8,7 @@ var Form = function(data){
         var q = data.questions[i];
         that.questions.push(new Question(q));
     }
-};
+}
+
+
+module.exports = Form;

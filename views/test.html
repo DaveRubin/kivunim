@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
-<body>
+<body style="direction: rtl">
+
+    <h1> {{form.name}}</h1>
+
+    {% for question in form.questions%}
+    {% if loop.first %}<ul >{% endif %}
+        <li>{{ question.name }} ) {{ question.text }}</li>
+    {% if loop.last %}</ul>{% endif %}
+    {% endfor %}
+
+
+
     {{message}}1
 </body>
 </html>

@@ -26,10 +26,6 @@
                             </td>
                             <td align="right">
                                 <b>
-                                    דף
-                                    {% raw %}{{ currentPage }}{% endraw %}
-                                    מתוך
-                                    {{ count // MAX_QUESTIONS +1 }}
                                 </b>
                             </td>
                         </tr>
@@ -40,11 +36,11 @@
                         </tr>
 
                         {% for question in form.questions %}
-                            <tr  ng-show = 'currentPage == {{ (loop.index-1) // MAX_QUESTIONS }}+1 '>
-                                {% for i in 1..7 %}
+                            <tr>
+                                {% for i in [0,1,2,3,4,5,6,7] %}
                                     <td>
                                         <b>
-                                            <input ng-model='questions.{{ form.name }}{{ question.name }}' type='radio' name='{{ question.name }}' value='{{ i }}'>
+
                                             {{ i }}
                                         </b>
                                     </td>
