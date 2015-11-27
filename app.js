@@ -24,34 +24,6 @@ var express = require('express'),
 var app = express();
 setEnvironment();
 
-
-app.get('/', function(req, res){
-
-    if (!req.session.page) {
-        req.session.page = 1;
-        req.session.timeStamp = new Date().getTime();
-    }
-
-    var obj = {name: req.session.userName,
-        error:req.session.error,
-        page:req.session.page};
-
-    res.render("ajaxTest", obj);
-});
-
-app.post('/', function(req, res){
-    req.session.userName = req.body.userName;
-    var newStamp = new Date().getTime();
-    if (req.session.timeStamp  + Config.MIN_FORM_DURTAION <  newStamp ) {
-        req.session.page ++;
-        req.session.timeStamp = newStamp;
-        req.session.error = false;
-    }
-    else {
-        req.session.error = "Too soon";
-    }
-    res.redirect('/');
-});
 /**
  * Render forms when needed
  */
@@ -96,7 +68,7 @@ var server = app.listen(3000, function () {
  */
 function setEnvironment(){
     //FOLDERS
-    //app.use(express.static(__dirname + '/app'));
+    app.use(express.static(__dirname + '/app'));
 
     //SWIG TEMPLATE ENGINE
     app.engine('html', swig.renderFile);
@@ -119,21 +91,31 @@ function setEnvironment(){
 
 
 /*
-cookie test
-
  app.get('/', function(req, res){
- var html = '<form action="/" method="post">' +
- 'Your name: <input type="text" name="userName"><br>' +
- '<button type="submit">Submit</button>' +
- '</form>';
- if (req.session.userName) {
- html += '<br>Your username from your session is: ' + req.session.userName;
+
+ if (!req.session.page) {
+ req.session.page = 1;
+ req.session.timeStamp = new Date().getTime();
  }
- res.send(html);
+
+ var obj = {name: req.session.userName,
+ error:req.session.error,
+ page:req.session.page};
+
+ res.render("ajaxTest", obj);
  });
 
  app.post('/', function(req, res){
  req.session.userName = req.body.userName;
+ var newStamp = new Date().getTime();
+ if (req.session.timeStamp  + Config.MIN_FORM_DURTAION <  newStamp ) {
+ req.session.page ++;
+ req.session.timeStamp = newStamp;
+ req.session.error = false;
+ }
+ else {
+ req.session.error = "Too soon";
+ }
  res.redirect('/');
  });
-* */
+ */
