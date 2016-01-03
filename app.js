@@ -1,11 +1,7 @@
 /**
  * Created by David on 10/11/2015.
  */
-//require('./api/createExcel.js');
-
-/**
- * REQUIREMENTS
- */
+'use strict'
 var express = require('express'),
     swig = require("swig"),
     path = require('path'),
@@ -15,43 +11,50 @@ var express = require('express'),
     jsonfile = require('jsonfile'),
     xl = require('./api/createExcel.js'),
     bodyParser = require('body-parser'), // for reading POSTed form data into `req.body`
-    expressSession = require('express-session'),
-    cookieParser = require('cookie-parser'); // the session is stored in a cookie, so we use this to parse it
+    cookieParser = require('cookie-parser'), // the session is stored in a cookie, so we use this to parse it
+    parseurl = require('parseurl');
 
+var forms = require('./routes/forms');
+var routes = require('./routes/index');
+//TODO: api calls var api = require....
 
 
 //APP INIT
 var app = express();
+app.use('/', routes);
+app.use('/forms', forms);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
 setEnvironment();
-
-/**
- * Render forms when needed
- */
-app.get('/forms/*', function (req, res) {
-    var formName= req._parsedOriginalUrl.pathname.split("/")[2];
-    //check if exist
-    console.log("-----------",formName);
-    var formData = jsonfile.readFileSync("koshi.json");
-    var f = new Form(formData);
-
-    var obj = {message:"YEAH! "+formName + " was found...", form:f};
-    if (fs.existsSync("views/"+formName+".html")) {
-        // Do something
-        res.render(formName, obj);
-    }
-    else {
-        //if not render 404
-        res.render("404", obj);
-    }
-});
-
-
-/**
- * Handle api ajax calls
- */
-app.get('/api/',function (req,res){
-
-});
 
 /**
  * Start the server
@@ -68,7 +71,7 @@ var server = app.listen(3000, function () {
  */
 function setEnvironment(){
     //FOLDERS
-    app.use(express.static(__dirname + '/app'));
+    app.use('/static', express.static(__dirname + '/kl4'));
 
     //SWIG TEMPLATE ENGINE
     app.engine('html', swig.renderFile);
@@ -76,7 +79,6 @@ function setEnvironment(){
     app.set('views', __dirname + '/views');
 
     app.use(cookieParser());
-    app.use(expressSession({secret:'somesecrettokenhere'}));
     app.use(bodyParser());
 
     //SWIG CACHE
@@ -88,34 +90,3 @@ function setEnvironment(){
         app.set('view cache', false);
     }
 }
-
-
-/*
- app.get('/', function(req, res){
-
- if (!req.session.page) {
- req.session.page = 1;
- req.session.timeStamp = new Date().getTime();
- }
-
- var obj = {name: req.session.userName,
- error:req.session.error,
- page:req.session.page};
-
- res.render("ajaxTest", obj);
- });
-
- app.post('/', function(req, res){
- req.session.userName = req.body.userName;
- var newStamp = new Date().getTime();
- if (req.session.timeStamp  + Config.MIN_FORM_DURTAION <  newStamp ) {
- req.session.page ++;
- req.session.timeStamp = newStamp;
- req.session.error = false;
- }
- else {
- req.session.error = "Too soon";
- }
- res.redirect('/');
- });
- */
