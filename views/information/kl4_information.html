@@ -14,60 +14,8 @@
             </div>
 
 
-            <div class="menu-right">
-
-                <table border="0" cellspacing="0" cellpadding="0" margin="0" width="100%">
-                    <tr>
-                        <td class="menu-right-td"><a href="http://kivunim.huji.ac.il/kl4/kl4_information.html"
-                                                     style="cursor:pointer; text-decoration:none"> <span
-                                class="menu-r-text-selected" style="font-size: medium">איפה כדאי ללמוד?</span></a></td>
-                    </tr>
-                    <tr>
-                        <td class="menu-right-td" style="font-size: medium"><a
-                                href="http://kivunim.huji.ac.il/kl4/kl4_information_psychometric.html"
-                                style="cursor:pointer; text-decoration:none"> <span class="menu-r-text"
-                                                                                    style="font-size: medium">פסיכומטרי</span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="menu-right-td"><a
-                                href="http://kivunim.huji.ac.il/kl4/kl4_information_acceptance.html"
-                                style="cursor:pointer; text-decoration:none"> <span class="menu-r-text"
-                                                                                    style="font-size: medium">סיכויי קבלה </span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="menu-right-td" style="font-size: medium"><a
-                                href="http://kivunim.huji.ac.il/kl4/kl4_information_mechinot.html"
-                                style="cursor:pointer; text-decoration:none"> <span class="menu-r-text"
-                                                                                    style="font-size: medium">מכינות</span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="menu-right-td"><a
-                                href="http://kivunim.huji.ac.il/kl4/kl4_information_scholarships.html"
-                                style="cursor:pointer; text-decoration:none"> <span class="menu-r-text"
-                                                                                    style="font-size: medium">מלגות</span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="menu-right-td"><a
-                                href="http://kivunim.huji.ac.il/kl4/kl4_information_job_search.html"
-                                style="cursor:pointer; text-decoration:none"> <span class="menu-r-text"
-                                                                                    style="font-size: medium">חיפוש עבודה </span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="menu-right-td"><a
-                                href="http://kivunim.huji.ac.il/kl4/kl4_information_how_to_do_it.html"
-                                style="cursor:pointer; text-decoration:none"> <span class="menu-r-text"
-                                                                                    style="font-size: medium">איך מממשים?</span></a>
-                        </td>
-                    </tr>
-                </table>
-
-
-            </div>
+            {% set selected = 1 %}
+            {% include "partials/side_menu.html" with  path%}
 
             <div class="page-content" style="margin-right: 271px;">
                 <p dir="RTL"><span style="font-size: medium;"><span style="font-family: arial, helvetica, sans-serif;">החלטת ללמוד לימודים גבוהים, אבל נתקעת בהחלטה
