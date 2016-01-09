@@ -52,29 +52,28 @@ var titlesMap = {
     '/process/kl4_process_what_to_study':{
         title:'מה כדאי ללמוד'
     },
-    '/process/base':{
-        title:'תהליך'
-    },
+
+
     '/kl4_information':{
-        title:'תהליך'
+        title:'איפה כדאי ללמוד'
     },
     '/kl4_information_acceptance':{
-        title:'תהליך'
+        title:'סיכויי קבלה'
     },
     '/kl4_information_how_to_do_it':{
-        title:'תהליך'
+        title:'איך מממשים'
     },
     '/kl4_information_job_search':{
-        title:'תהליך'
+        title:'חיפוש עבודה'
     },
     '/kl4_information_mechinot':{
-        title:'תהליך'
+        title:'מכינות'
     },
     '/kl4_information_psychometric':{
-        title:'תהליך'
+        title:'פסיכומטרי'
     },
     '/kl4_information_scholarships':{
-        title:'תהליך'
+        title:'מלגות'
     },
     '/base':{
         title:'תהליך'
