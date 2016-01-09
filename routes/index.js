@@ -17,13 +17,13 @@ var paths = [
     '/process/kl4_process_to_decide',
     '/process/kl4_process_what_to_study',
     '/process/base',
-    'kl4_information',
-    'kl4_information_acceptance',
-    'kl4_information_how_to_do_it',
-    'kl4_information_job_search',
-    'kl4_information_mechinot',
-    'kl4_information_psychometric',
-    'kl4_information_scholarships',
+    '/information/kl4_information',
+    '/information/kl4_information_acceptance',
+    '/information/kl4_information_how_to_do_it',
+    '/information/kl4_information_job_search',
+    '/information/kl4_information_mechinot',
+    '/information/kl4_information_psychometric',
+    '/information/kl4_information_scholarships',
     '/base',
     '/test',
     '/test2'
@@ -54,25 +54,25 @@ var titlesMap = {
     },
 
 
-    '/kl4_information':{
+    '/information/kl4_information':{
         title:'איפה כדאי ללמוד'
     },
-    '/kl4_information_acceptance':{
+    '/information//information/kl4_information_acceptance':{
         title:'סיכויי קבלה'
     },
-    '/kl4_information_how_to_do_it':{
+    '/information/kl4_information_how_to_do_it':{
         title:'איך מממשים'
     },
-    '/kl4_information_job_search':{
+    '/information/kl4_information_job_search':{
         title:'חיפוש עבודה'
     },
-    '/kl4_information_mechinot':{
+    '/information/kl4_information_mechinot':{
         title:'מכינות'
     },
-    '/kl4_information_psychometric':{
+    '/information/kl4_information_psychometric':{
         title:'פסיכומטרי'
     },
-    '/kl4_information_scholarships':{
+    '/information/kl4_information_scholarships':{
         title:'מלגות'
     },
     '/base':{
@@ -94,9 +94,11 @@ router.get(paths, function (req, res) {
     var formName= parseurl.original(req).pathname;
     //check if exist
     console.log('----------',formName);
-    var obj = {};
+    var obj = {
+        path:'http://localhost:3000'
+    };
     if (titlesMap[formName]) {
-        obj = titlesMap[formName];
+        obj.page = titlesMap[formName];
     }
     formName = formName.substring(1)
     if (formName == "") formName = "home";
