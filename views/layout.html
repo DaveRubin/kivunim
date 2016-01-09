@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>layout</title>
-    <link rel="stylesheet" href="/css/test.css">
-</head>
-<header>YO YOY YOM</header>
-<body>
-{% block content %}{% endblock %}
+    {% block head %}
+    <title>Kivunim</title>
+    {% endblock %}
 
+    <meta charset="UTF-8">
+    <link href="/css/div.css" rel="stylesheet"       type="text/css">
+    <link href="/css/menuCss.css" rel="stylesheet"   type="text/css">
+    <link href="/css/header.css" rel="stylesheet"   type="text/css">
+    {% block css %}
+    {% endblock %}
+
+    <script src="dependencies/jquery-1.10.2.js"></script>
+    {% block js %}
+    {% endblock %}
+</head>
+<body>
+{% include "partials/header.html" %}
+{% block content %}{% endblock %}
+{% include "partials/footer.html" %}
 </body>
-<footer>KKKKK</footer>
 </html>

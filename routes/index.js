@@ -11,23 +11,33 @@ var jsonfile = require('jsonfile'),
 
 var paths = [
     '/',
+    '/process/kl4_process',
+    '/process/kl4_process_instruction',
+    '/process/kl4_process_levels',
+    '/process/kl4_process_planning',
+    '/process/kl4_process_to_decide',
+    '/process/kl4_process_what_to_study',
+    '/process/base',
+    'kl4_information',
+    'kl4_information_acceptance',
+    'kl4_information_how_to_do_it',
+    'kl4_information_job_search',
+    'kl4_information_mechinot',
+    'kl4_information_psychometric',
+    'kl4_information_scholarships',
     '/base',
     '/test',
     '/test2'
 ];
 
 router.get(paths, function (req, res) {
-    console.log('//////////////////////////');
+    console.log('//////////////////////////',parseurl.original(req).pathname);
     console.log(parseurl.original(req).pathname.split("/")[1]);
-    var formName= parseurl.original(req).pathname.split("/")[1];
+    //remove first char from string
+    var formName= parseurl.original(req).pathname.substring(1);
     //check if exist
-
-    console.log("-----------",formName);
-    if (formName == "") formName = "intro";
-    var formData = jsonfile.readFileSync("koshi.json");
-    var f = new Form(formData);
-
-    var obj = {message:"YEAH! "+formName + " was found...", form:f};
+    if (formName == "") formName = "home";
+    var obj = {};
     if (fs.existsSync("views/"+formName+".html")) {
         // Do something
         res.render(formName, obj);
